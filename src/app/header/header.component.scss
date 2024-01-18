@@ -1,0 +1,112 @@
+.header-section {
+    width: 100%;
+    min-height: 120px;
+    padding: 20px;
+    background-color: whitesmoke;
+    opacity: 0.7;
+    position: relative;
+}
+
+.nav-link {
+    font-size: 18px;
+    color: black !important;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+// ul li::before {
+//     content: "\2022";
+//     color: yellow;
+//     font-weight: bold;
+//     margin-right: 25px;
+// }
+
+ul .header-tab:hover .nav-link {
+    color: darkgoldenrod !important;
+    border-bottom: 1px solid lightslategray;
+}
+
+.contact-number {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.company-profile {
+    transition: 0.3s;
+}
+
+ul .company-profile:hover .profile-dropdown,
+ul .company-profile:hover .profile-dropdown ul li {
+    visibility: visible;
+}
+
+.profile-dropdown {
+    visibility: hidden;
+    position: absolute;
+    transition: 0.5s;
+    width: 210px;
+    height: auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+    ul {
+        padding-left: 0px;
+    }
+
+    ul li {
+        visibility: hidden;
+        display: flex;
+        font-weight: 500;
+        font-size: 15px;
+        align-items: center;
+        justify-content: start;
+        padding: 10px 0px 10px 20px;
+        border-bottom: 1px solid lightgray;
+        cursor: pointer;
+    }
+
+    ul li:hover {
+        padding-left: 27px
+    }
+}
+
+@media (max-width: 475px) {
+    .mobile-screen {
+        display: none;
+    }
+
+    .header-section {
+        overflow-x: hidden;
+    }
+
+    .header-section {
+        min-height: 80px;
+        padding: 10px;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tm-header-logo img {
+        width: 150px;
+    }
+
+    .navbar-toggler {
+        background-color: orange;
+    }
+}
