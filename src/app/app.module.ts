@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { InfrastructureComponent } from './infrastructure/infrastructure.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
+import { StrengthComponent } from './strength/strength.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     ProductsComponent,
     InfrastructureComponent,
     ContactUsComponent,
-    HeaderComponent
+    HeaderComponent,
+    StrengthComponent
   ],
   imports: [
     BrowserModule,

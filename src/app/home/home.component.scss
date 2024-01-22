@@ -1,0 +1,54 @@
+.carousel-item {
+    position: relative;
+}
+
+.landing-text {
+    width: 650px;
+    height: 860px;
+    background-color: whitesmoke;
+    color: black;
+    padding: 160px 50px 40px 50px;
+    position: absolute;
+    top: 0;
+    left: 10%;
+
+    h1 {
+        font-size: 50px;
+        margin: 30px 0;
+    }
+
+    .thin-text {
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    .bold-text {
+        font-weight: 600;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        background-color: #333333;
+        border-radius: 0px;
+        border: 1px solid transparent;
+        padding: 10px 30px;
+        color: white;
+        transition: 0.5s;
+    }
+
+    button:hover {
+        border: 1px solid #333333;
+        background-color: whitesmoke;
+        color: black;
+    }
+}
+
+.slider-image {
+    height: 860px;
+}
