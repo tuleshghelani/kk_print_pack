@@ -18,7 +18,7 @@
     }
 
     .thin-text {
-        font-weight: 300;
+        font-weight: 200;
         letter-spacing: 1px;
     }
 
@@ -51,4 +51,90 @@
 
 .slider-image {
     height: 860px;
+}
+
+.product-info-section {
+    overflow-x: hidden;
+    margin: 90px;
+    position: relative;
+
+    .printing-image-bg {
+        position: absolute;
+        height: 500px;
+        width: 670px;
+        background-color: lightgray;
+        z-index: -1;
+    }
+
+    .printing-image {
+        margin: 40px 0px 0px 40px;
+        z-index: 999;
+        height: 600px;
+        width: 770px;
+    }
+
+    .readmore-btn {
+        margin-top: 40px;
+        background-color: #333333;
+        border-radius: 0px;
+        border: 1px solid transparent;
+        padding: 10px 30px;
+        color: white;
+        transition: 0.5s;
+    }
+
+    .readmore-btn:hover {
+        border: 1px solid #333333;
+        background-color: whitesmoke;
+        color: black;
+    }
+
+    .welcome-text {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    h4 {
+        font-size: 50px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin: 20px 0;
+    }
+
+    .score-section {
+        width: 500px;
+        margin: 30px 50px;
+        cursor: pointer;
+
+        .border-right {
+            border-right: 1px solid lightgray;
+        }
+
+        .count-number {
+            padding: 10px 30px;
+        }
+
+        h3 {
+            font-size: 40px;
+            font-weight: 400;
+        }
+
+        .bottom-border {
+            width: 40px;
+            border-radius: 20px;
+            border-bottom: 4px solid lightblue;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 16px;
+        }
+    }
 }
