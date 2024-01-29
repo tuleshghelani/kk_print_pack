@@ -10,6 +10,7 @@ import { InfrastructureComponent } from './infrastructure/infrastructure.compone
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
 import { StrengthComponent } from './strength/strength.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StrengthComponent } from './strength/strength.component';
     InfrastructureComponent,
     ContactUsComponent,
     HeaderComponent,
-    StrengthComponent
+    StrengthComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
