@@ -1,0 +1,134 @@
+.stength-banner {
+    display: flex;
+    margin: 20px 50px 20px 70px;
+    justify-content: center;
+    position: relative;
+
+    .bg-square {
+        position: absolute;
+        width: 900px;
+        height: 725px;
+        top: 4%;
+        right: 0%;
+        background-color: #F0F5F9;
+        z-index: -10;
+    }
+
+    img {
+        margin-top: 80px;
+        width: 1800px;
+    }
+
+    .stength-text {
+        position: absolute;
+        bottom: -4%;
+        left: 2%;
+        width: 250px;
+        height: 65px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+        font-size: 40px;
+        color: #293951;
+        background-color: #F0F5F9;
+    }
+}
+.strength-content {
+    width: 850px;
+    margin: 150px 0px 50px 0px;
+    text-align: center;
+    p {
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+/* Slider */
+.slick-slide {
+    margin: 0px 20px;
+    overflow: hidden;
+  }
+  
+  .logo-carousel {
+    overflow: inherit;
+    padding: 50px 0;
+    overflow: hidden;
+    border-top: 1px solid #353535;
+    border-bottom: 1px solid #353535;
+  }
+  
+  .slide img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .slick-track::before,
+  .slick-track::after {
+    display: table;
+    content: '';
+  }
+  
+  .slick-track::after {
+    clear: both;
+  }
+  
+  .slick-track {
+    padding: 1rem 0;
+  }
+  
+  .slick-loading .slick-track {
+    visibility: hidden;
+  }
+  
+  .slick-slide.slick-loading img {
+    display: none;
+  }
+  
+  .slick-slide.dragging img {
+    pointer-events: none;
+  }
+  
+  .slick-loading .slick-slide {
+    visibility: hidden;
+  }
+  
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    background: url(https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/arrow.svg?sanitize=true) center no-repeat;
+    color: #fff;
+    filter: invert(77%) sepia(32%) saturate(1%) hue-rotate(344deg) brightness(105%) contrast(103%);
+    border: none;
+    width: 2rem;
+    height: 1.5rem;
+    text-indent: -10000px;
+    margin-top: -16px;
+    z-index: 99;
+  }
+  
+  .slick-arrow.slick-next {
+    right: -40px;
+    transform: rotate(180deg);
+  }
+  
+  .slick-arrow.slick-prev {
+    left: -40px;
+  }
+  
+  /* Media Queries */
+  
+  @media (max-width: 768px) {
+    .slick-arrow {
+      width: 1rem;
+      height: 1rem;
+    }
+  }  
+  .row {
+    overflow: hidden;
+  }  
+  
+  /* JsFiddle Example only/don't use */
+  .logo-carousel {
+    margin-top: 32px;
+  }
