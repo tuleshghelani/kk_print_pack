@@ -1,2 +1,25 @@
 <app-header></app-header>
-<p>products works!</p>
+<div class="product-banner">
+    <div class="bg-square" data-aos="zoom-in" data-aos-duration="1700"></div>
+    <img src="../../assets/products/product-landing.jpg" alt="">
+    <div class="product-text">Our Products</div>
+</div>
+
+<div class="product-description">
+    <p> We manufacture high quality custom printed flexible packaging materials as multi-layer roll stock </p>
+    <p> films and pouches for aseptic packaging of food and non food products.</p>
+</div>
+<!-- PRODUCT LIST -->
+<div class="product-items">
+    <div class="product" *ngFor="let product of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]; let i = index"
+    data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+         <div [ngClass]="{'mt-5': product % 2 === 0}">
+              <div class="tooltip-top">Food Packaging
+                   Biscuits & Confectionery</div>
+              <img src="../../assets/products/Pet-Food.jpg" alt="">
+         </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<app-footer></app-footer>
