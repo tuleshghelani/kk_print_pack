@@ -10,7 +10,7 @@
     height: 860px;
     background-color: whitesmoke;
     color: black;
-    padding: 160px 50px 40px 50px;
+    padding: 80px 50px 40px 50px;
     position: absolute;
     top: 0;
     left: 10%;
@@ -50,6 +50,20 @@
         background-color: whitesmoke;
         color: black;
     }
+
+    .experience-number {
+        font-size: 150px;
+        margin-bottom: 0px;
+        color: gray;
+        transition: font-size 0.5s ease-in-out;
+        span {
+            font-size: 80px;
+        }
+    }
+
+    .years-exp-text {
+        font-size: 30px;
+    }
 }
 
 .slider-image {
@@ -73,7 +87,7 @@
         margin: 40px 0px 0px 40px;
         z-index: 999;
         height: 600px;
-        width: 770px;
+        width: -webkit-fill-available;
     }
 
     .readmore-btn {
@@ -211,4 +225,9 @@
         background-color: whitesmoke;
         color: black;
     }
+}
+@media (min-width:1440px) {
+    .product-items {
+        width: 1417px;
+    }   
 }

@@ -11,6 +11,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
 import { StrengthComponent } from './strength/strength.component';
 import { FooterComponent } from './footer/footer.component';
+import { QualityComponent } from './quality/quality.component';
+import { CareerComponent } from './career/career.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './footer/footer.component';
     ContactUsComponent,
     HeaderComponent,
     StrengthComponent,
-    FooterComponent
+    FooterComponent,
+    QualityComponent,
+    CareerComponent
   ],
   imports: [
     BrowserModule,
