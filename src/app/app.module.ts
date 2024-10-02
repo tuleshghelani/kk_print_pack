@@ -13,6 +13,8 @@ import { StrengthComponent } from './strength/strength.component';
 import { FooterComponent } from './footer/footer.component';
 import { QualityComponent } from './quality/quality.component';
 import { CareerComponent } from './career/career.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { CareerComponent } from './career/career.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

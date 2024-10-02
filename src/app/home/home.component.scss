@@ -1,233 +1,413 @@
-.packaging-slider {
-    z-index: -99;
-}
-.carousel-item {
-    position: relative;
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #f0f0f0; // Light background color
 }
 
-.landing-text {
-    width: 650px;
-    height: 860px;
-    background-color: whitesmoke;
-    color: black;
-    padding: 15px 50px 40px 50px;
+.background-animation {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(-45deg, #FFB52E, #FFD68A, #FFF5E1, #000000);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite, rotateAnimation 60s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.background-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatParticle 10s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+// Ensure content is visible over the animation
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+$primary-color: #FFB52E;
+$secondary-color: #000000;
+
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  .slide {
     position: absolute;
     top: 0;
-    left: 10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 
-    h1 {
-        font-size: 50px;
-        margin: 30px 0;
+    &.active {
+      opacity: 1;
     }
 
-    .thin-text {
-        font-weight: 200;
-        letter-spacing: 1px;
+    .slide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .bold-text {
-        font-weight: 600;
-    }
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
-    p {
-        font-weight: 300;
-        font-size: 14px;
-        letter-spacing: 1px;
-        margin-bottom: 30px;
+      .experience-counter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .counter-number {
+          font-size: 4rem;
+          font-weight: bold;
+          color: $primary-color;
+          animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+
+        .counter-border {
+          width: 50px;
+          height: 3px;
+          background-color: $primary-color;
+          margin: 0.5rem 0;
+        }
+
+        .counter-text {
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+      }
+
+      .slide-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-out;
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .thin-text {
+          font-weight: 300;
+        }
+
+        .bold-text {
+          font-weight: 700;
+        }
+      }
+
+      .slide-description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
     }
+  }
+
+  .slider-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
 
     button {
-        background-color: #333333;
-        border-radius: 0px;
-        border: 1px solid transparent;
-        padding: 10px 30px;
-        color: white;
-        transition: 0.5s;
-    }
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      color: $secondary-color;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-    button:hover {
-        border: 1px solid #333333;
-        background-color: whitesmoke;
-        color: black;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
     }
-
-    .experience-number {
-        font-size: 150px;
-        margin-bottom: 0px;
-        color: gray;
-        transition: font-size 0.5s ease-in-out;
-        span {
-            font-size: 80px;
-        }
-    }
-
-    .years-exp-text {
-        font-size: 30px;
-    }
+  }
 }
 
-.slider-image {
-    height: 860px;
-}
+.about-section {
+  padding: 5rem 0;
+  background-color: #f8f8f8;
 
-.product-info-section {
-    overflow-x: hidden;
-    margin: 90px;
+  .about-image-wrapper {
     position: relative;
+    overflow: hidden;
 
-    .printing-image-bg {
-        position: absolute;
-        height: 500px;
-        width: 670px;
-        background-color: lightgray;
-        z-index: -1;
+    .about-image {
+      width: 100%;
+      transition: transform 0.3s ease;
     }
 
-    .printing-image {
-        margin: 40px 0px 0px 40px;
-        z-index: 999;
-        height: 600px;
-        width: -webkit-fill-available;
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($primary-color, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .readmore-btn {
-        margin-top: 40px;
-        background-color: #333333;
-        border-radius: 0px;
-        border: 1px solid transparent;
-        padding: 10px 30px;
-        color: white;
-        transition: 0.5s;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
     }
 
-    .readmore-btn:hover {
-        border: 1px solid #333333;
-        background-color: whitesmoke;
-        color: black;
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
     }
+
+    &:hover {
+      .about-image {
+        transform: scale(1.05);
+      }
+
+      .image-overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  .about-content {
+    padding-left: 2rem;
 
     .welcome-text {
-        font-weight: 400;
-        font-size: 18px;
-        letter-spacing: 1px;
+      color: $primary-color;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: $secondary-color;
     }
 
-    h4 {
-        font-size: 50px;
-        font-weight: 300;
-        margin-bottom: 10px;
+    .company-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: $primary-color;
     }
 
     p {
-        font-weight: 300;
-        font-size: 14px;
-        letter-spacing: 1px;
-        margin: 20px 0;
+      margin-bottom: 1rem;
     }
-
-    .score-section {
-        width: 500px;
-        margin: 30px 50px;
-        cursor: pointer;
-
-        .border-right {
-            border-right: 1px solid lightgray;
-        }
-
-        .count-number {
-            padding: 10px 30px;
-        }
-
-        h3 {
-            font-size: 40px;
-            font-weight: 400;
-        }
-
-        .bottom-border {
-            width: 40px;
-            border-radius: 20px;
-            border-bottom: 4px solid lightblue;
-        }
-
-        p {
-            font-weight: 400;
-            font-size: 16px;
-        }
-    }
+  }
 }
 
-.product-seaction {
-    .product-header {
+.product-section {
+  padding: 5rem 0;
+  background-color: white;
 
-        h4 {
-            font-size: 40px;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
 
-        p {
-            font-weight: 400;
-            font-size: 14px;
-            letter-spacing: 1px;
-            margin: 10px 0;
-        }
+  .section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-item {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+
+    &:nth-child(even) {
+      animation-delay: 1.5s;
     }
+  }
 
-    .product-items {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .product {
-            position: relative;
-            margin: 25px 17px;
-            img {
-                width: 380px;
-                height: 410px;
-            }
-            .tooltip-top {
-                --size: 150px;
-                --padding: 10px;
-                color: whitesmoke;
-                font-size: 12px;
-                position: absolute;
-                width: calc(var(--size) - var(--padding));
-                height: calc(var(--size) / 2);
-                background: #333;
-                padding: var(--padding);
-            }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
 
-            .tooltip-top:after {
-                content: '';
-                position: absolute;
-                top: 100%;
-                left: 45%;
-                transform: translate(-50%, -50%) rotate(45deg);
-                background: #333;
-                height: 16px;
-                width: 16px;
-            }
-        }
-    }
-    .readmore-btn {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        background-color: #333333;
-        border-radius: 0px;
-        border: 1px solid transparent;
-        padding: 10px 50px;
-        color: white;
-        transition: 0.5s;
-    }
+  .product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+  }
 
-    .readmore-btn:hover {
-        border: 1px solid #333333;
-        background-color: whitesmoke;
-        color: black;
-    }
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background-color: $primary-color;
+  }
+
+  .product-item:hover .product-image-wrapper {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+
+  .product-item:hover .product-image {
+    transform: scale(1.5);
+  }
+
+  .product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 1rem;
+  }
+
+  .product-name {
+    color: #fff;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+  }
 }
-@media (min-width:1440px) {
-    .product-items {
-        width: 1417px;
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &-primary {
+    background-color: $primary-color;
+    color: $secondary-color;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
     }
+  }
+
+  &-secondary {
+    background-color: $secondary-color;
+    color: white;
+
+    &:hover {
+      background-color: lighten($secondary-color, 20%);
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--primary-color); /* Use your primary color variable */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: $primary-color;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  color: $primary-color;
+  border: 1px solid $primary-color;
 }
