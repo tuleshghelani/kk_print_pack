@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CircularProductsComponent } from './components/circular-products/circular-products.component';
 import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.component';
 import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
+import { QuerySectionComponent } from './components/query-section/query-section.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProductShowcaseComponent } from './components/product-showcase/product-
     CareerComponent,
     CircularProductsComponent,
     WhyChooseUsComponent,
-    ProductShowcaseComponent
+    ProductShowcaseComponent,
+    QuerySectionComponent
   ],
   imports: [
     BrowserModule,

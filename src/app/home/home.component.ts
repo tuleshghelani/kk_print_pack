@@ -1,10 +1,19 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { trigger, transition, style, animate, state, keyframes } from '@angular/animations';
 import * as AOS from 'aos';
+import { sliderAnimations } from '../animations/slider.animations';
 
 interface Slide {
   image: string;
-  state: 'active' | 'inactive';
+  state: string;
+  content: {
+    counter: {
+      value: string | number;
+      text: string;
+      current: number;
+    };
+    title: string[];
+  };
 }
 @Component({
   selector: 'app-home',
@@ -52,6 +61,9 @@ interface Slide {
         animate('1000ms', style({ opacity: 1 })),
       ]),
     ]),
+    sliderAnimations.slideContent,
+    sliderAnimations.imageReveal,
+    sliderAnimations.textElements
   ],
 })
 export class HomeComponent implements OnInit {
@@ -59,9 +71,31 @@ export class HomeComponent implements OnInit {
   @ViewChild('heroSlider') heroSlider!: ElementRef;
 
 
-  slides: Slide[] = [
-    { image: '../../assets/dashboard-image/rotogravure_printing_machine.jpeg', state: 'active' },
-    { image: '../../assets/dashboard-image/rotogravure_printing_machine_2.jpeg', state: 'active' },
+  slides = [
+    {
+      image: '../../assets/dashboard-image/rotogravure_printing_machine_2.jpeg',
+      state: 'second',
+      content: {
+        counter: {
+          value: '1M+',
+          text: 'PRODUCTS DELIVERED',
+          current: 0
+        },
+        title: ['INNOVATIVE', 'PRINTING SOLUTIONS', 'FOR YOUR BUSINESS']
+      }
+    },
+    {
+      image: '../../assets/dashboard-image/rotogravure_printing_machine.jpeg',
+      state: 'first',
+      content: {
+        counter: {
+          value: 27,
+          text: "YEAR'S OF EXPERIENCE",
+          current: 0
+        },
+        title: ['WE GIVE', 'FLEXIBLE PACKAGING', 'SOLUTIONS']
+      }
+    },
   ];
 
   currentSlide = 0;
@@ -84,8 +118,14 @@ export class HomeComponent implements OnInit {
       offset: 100
     });
 
+    // Initialize counters immediately
+    this.slides.forEach(slide => {
+      if (typeof slide.content.counter.value === 'number') {
+        slide.content.counter.current = slide.content.counter.value;
+      }
+    });
+
     this.startSlideshow();
-    this.animateCounter();
     this.startProductAnimation();
     this.generateParticles();
   }
@@ -118,17 +158,35 @@ export class HomeComponent implements OnInit {
     }, 5000);
   }
   nextSlide() {
-    const nextIndex = (this.currentSlide + 1) % this.slides.length;
-    this.slides[this.currentSlide].state = 'inactive';
-    this.slides[nextIndex].state = 'active';
-    this.currentSlide = nextIndex;
+    const prevIndex = this.currentSlide;
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    
+    // Reset animations for previous slide
+    this.slides[prevIndex].state = 'inactive';
+    
+    // Trigger animations for new slide
+    setTimeout(() => {
+      this.slides[this.currentSlide].state = this.currentSlide === 0 ? 'first' : 'second';
+      if (typeof this.slides[this.currentSlide].content.counter.value === 'number') {
+        this.animateCounterForSlide(this.slides[this.currentSlide]);
+      }
+    }, 100);
   }
 
   prevSlide() {
-    const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-    this.slides[this.currentSlide].state = 'inactive';
-    this.slides[prevIndex].state = 'active';
-    this.currentSlide = prevIndex;
+    const prevIndex = this.currentSlide;
+    this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+    
+    // Reset animations for previous slide
+    this.slides[prevIndex].state = 'inactive';
+    
+    // Trigger animations for new slide
+    setTimeout(() => {
+      this.slides[this.currentSlide].state = this.currentSlide === 0 ? 'first' : 'second';
+      if (typeof this.slides[this.currentSlide].content.counter.value === 'number') {
+        this.animateCounterForSlide(this.slides[this.currentSlide]);
+      }
+    }, 100);
   }
 
   animateCounter() {
@@ -150,5 +208,16 @@ export class HomeComponent implements OnInit {
     setInterval(() => {
       this.products = [...this.products.slice(1), this.products[0]];
     }, 3000);
+  }
+
+  private animateCounterForSlide(slide: Slide) {
+    if (typeof slide.content.counter.value === 'number') {
+      // Set the counter value immediately
+      slide.content.counter.current = slide.content.counter.value;
+    }
+  }
+
+  isNumber(value: any): boolean {
+    return typeof value === 'number';
   }
 }

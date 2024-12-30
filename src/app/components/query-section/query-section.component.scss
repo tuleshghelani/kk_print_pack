@@ -1,0 +1,130 @@
+.query-section {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fff8eb 100%);
+  overflow: hidden;
+
+  .section-title {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .highlight-bar {
+    width: 80px;
+    height: 4px;
+    background: #FFB52E;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 2.5rem;
+  }
+
+  .features {
+    margin-bottom: 3rem;
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      
+      i {
+        color: #FFB52E;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+
+      span {
+        font-size: 1.1rem;
+        color: #333333;
+      }
+    }
+  }
+
+  .contact-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #FFB52E;
+    border: none;
+    color: #000000;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #000000;
+      color: #FFB52E;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 181, 46, 0.3);
+    }
+  }
+
+  .product-animation {
+    position: relative;
+    
+    .product-wrapper {
+      position: relative;
+      padding: 2rem;
+      transition: transform 0.3s ease-out;
+
+      .floating-product {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .query-section {
+    padding: 6rem 0;
+
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .product-animation {
+      margin-top: 3rem;
+      
+      .product-wrapper {
+        text-align: center;
+        
+        .floating-product {
+          max-width: 400px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .query-section {
+    padding: 4rem 0;
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .description {
+      font-size: 1.1rem;
+    }
+  }
+} 

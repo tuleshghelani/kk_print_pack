@@ -11,30 +11,41 @@
   <!-- LANDING SLIDER SECTION -->
   <div class="hero-slider" #heroSlider>
     <div class="slide" *ngFor="let slide of slides; let i = index"
-         [@slideAnimation]="slide.state"
+         [@slideContent]="slide.state"
          [class.active]="i === currentSlide">
-      <img [src]="slide.image" alt="Slide image" class="slide-image">
-      <div class="slide-content">
-        <div class="experience-counter">
-          <h1 class="counter-number">{{ counterValue }}<span>+</span></h1>
+      <img [src]="slide.image" [alt]="'Slide ' + (i + 1)" 
+           class="slide-image"
+           [@imageReveal]>
+      
+      <div class="slide-content" [@textElements]>
+        <div class="counter-wrapper animated-text">
+          <h1 class="counter-number">
+            <ng-container *ngIf="slide.content.counter.value">
+              {{ isNumber(slide.content.counter.value) ? 
+                  (slide.content.counter.value | number) : 
+                  slide.content.counter.value 
+              }}<span>+</span>
+            </ng-container>
+          </h1>
           <div class="counter-border"></div>
-          <p class="counter-text">YEAR'S OF EXPERIENCE</p>
+          <p class="counter-text">{{ slide.content.counter.text }}</p>
         </div>
+        
         <h1 class="slide-title">
-          <span class="thin-text">WE GIVE</span><br>
-          <span class="bold-text">FLEXIBLE PACKAGING</span><br>
-          <span class="thin-text">SOLUTIONS</span>
+          <span class="thin-text animated-text">{{ slide.content.title[0] }}</span>
+          <span class="bold-text animated-text">{{ slide.content.title[1] }}</span>
+          <span class="thin-text animated-text">{{ slide.content.title[2] }}</span>
         </h1>
-        <!-- <p class="slide-description">We are one of the biggest and fastest growing Converter and exporter of Flexible Packaging based in Rajkot, Gujarat.</p> -->
-        <button class="btn btn-primary">READ MORE</button>
+        
+        <button class="btn btn-primary animated-text">EXPLORE MORE</button>
       </div>
     </div>
+    
     <div class="slider-controls">
       <button class="prev-btn" (click)="prevSlide()">&#10094;</button>
       <button class="next-btn" (click)="nextSlide()">&#10095;</button>
     </div>
   </div>
-
   <!-- ABOUT SECTION -->
   <div class="about-section">
     <div class="container">
@@ -61,7 +72,7 @@
   </div>
 
   <app-why-choose-us></app-why-choose-us>
-  <!-- PRODUCT SECTION -->
+  <app-query-section></app-query-section>
   <app-product-showcase></app-product-showcase>
 
   <app-circular-products></app-circular-products>

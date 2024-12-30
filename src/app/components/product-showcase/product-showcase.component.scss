@@ -1,12 +1,8 @@
 .product-showcase {
   padding: 6rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 203, 60, 0.05) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(43, 76, 126, 0.05) 100%
-  );
-
+  position: relative;
+  background: #ffffff;
+  
   .section-title {
     text-align: center;
     font-size: 2.8rem;
