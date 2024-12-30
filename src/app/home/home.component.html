@@ -39,47 +39,31 @@
   <div class="about-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
           <div class="about-image-wrapper">
             <img src="assets/dashboard-image/rotogravure-machine.jpg" alt="Rotogravure Machine" class="about-image">
             <div class="image-overlay"></div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
           <div class="about-content">
             <h4 class="welcome-text">Welcome to</h4>
             <h2 class="company-name">KK PRINT PACK SOLUTIONS</h2>
-            <p>The strong foundation of Gopal PrintPack Solutions was laid down in 2014.</p>
-            <p>The company came into existence as forward integration for parent company named Gopal Snacks to meet its packaging requirement.</p>
-            <p>In the span of five years, the company has shown its strength in providing solutions in the Printing & Packaging industry to the extent that today it has become one of the front runner companies in the state of Gujarat and expanding exponentially, offering its products and solutions to many other companies.</p>
-            <p>Gopal PrintPack excels in delivering customized packaging solutions to its Customers like Amul, Prabhuji Haldiram, Gopal, Evita, Top n Town, Sanchi etc. as per their requirements.</p>
-            <button class="btn btn-primary">READ MORE</button>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">The strong foundation of Gopal PrintPack Solutions was laid down in 2014.</p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">The company came into existence as forward integration for parent company named Gopal Snacks to meet its packaging requirement.</p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">In the span of five years, the company has shown its strength in providing solutions in the Printing & Packaging industry to the extent that today it has become one of the front runner companies in the state of Gujarat and expanding exponentially, offering its products and solutions to many other companies.</p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">Gopal PrintPack excels in delivering customized packaging solutions to its Customers like Amul, Prabhuji Haldiram, Gopal, Evita, Top n Town, Sanchi etc. as per their requirements.</p>
+            <button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800">READ MORE</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <app-why-choose-us></app-why-choose-us>
   <!-- PRODUCT SECTION -->
-  <div class="product-section">
-    <div class="container">
-      <h2 class="section-title" [@floatingAnimation]>OUR PRODUCTS</h2>
-      <p class="section-description">We manufacture high quality custom printed flexible packaging materials as multi-layer roll stock films and pouches for aseptic packaging of food products.</p>
-      <div class="product-grid">
-        <div class="product-item" *ngFor="let product of products; let i = index" [@fadeInOut]>
-          <div class="product-image-wrapper">
-            <img [src]="product.image" [alt]="product.name" class="product-image">
-            <div class="product-overlay">
-              <h3 class="product-name">{{ product.name }}</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="button-container">
-        <button class="btn btn-primary">VIEW ALL PRODUCTS</button>
-      </div>
-    </div>
-  </div>
+  <app-product-showcase></app-product-showcase>
 
+  <app-circular-products></app-circular-products>
   <app-footer></app-footer>
 </div>

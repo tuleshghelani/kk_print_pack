@@ -1,0 +1,49 @@
+<div class="circular-products-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left side description -->
+      <div class="col-lg-6 product-description" data-aos="fade-right">
+        <h2 class="section-title">Innovative Packaging Solutions</h2>
+        <div class="description-content">
+          <p class="lead">At KK Print Pack Solutions, we specialize in creating premium packaging solutions that combine functionality with aesthetic appeal.</p>
+          <ul class="feature-list">
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="fas fa-check-circle"></i>
+              <span>Food-grade quality assurance</span>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-check-circle"></i>
+              <span>Customizable designs and sizes</span>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="fas fa-check-circle"></i>
+              <span>Sustainable packaging options</span>
+            </li>
+          </ul>
+          <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="400">
+            Explore Our Products
+          </button>
+        </div>
+      </div>
+
+      <!-- Right side circular products -->
+      <div class="col-lg-6 product-showcase">
+        <div class="circle-container" #circleContainer [style.transform]="'rotate(' + rotation + 'deg)'">
+          <div class="product-item" *ngFor="let product of products; let i = index"
+               [style.transform]="'rotate(' + (i * (180 / (products.length - 1))) + 'deg) translate(180px) rotate(-' + (i * (180 / (products.length - 1))) + 'deg)'"
+               [@fadeInOut]
+               data-aos="zoom-in"
+               [attr.data-aos-delay]="i * 100">
+            <div class="product-content">
+              <img [src]="product.image" [alt]="product.name">
+              <!-- <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

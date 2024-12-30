@@ -76,8 +76,9 @@ $primary-color: #FFB52E;
 $secondary-color: #000000;
 
 .hero-slider {
+  margin-top: 90px;
   position: relative;
-  height: 100vh;
+  height: 75vh;
   overflow: hidden;
 
   .slide {
@@ -95,13 +96,14 @@ $secondary-color: #000000;
 
     .slide-image {
       width: 100%;
-      height: 100%;
+      height: 75vh;
       object-fit: cover;
+      object-position: center;
     }
 
     .slide-content {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 10%;
       transform: translateY(-50%);
       color: white;
@@ -288,68 +290,99 @@ $secondary-color: #000000;
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
 
-  .product-item {
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: visible;
-    transition: transform 0.3s ease;
-    animation: float 3s ease-in-out infinite;
+    .product-item {
+      border: 1px solid var(--primary-color);
+      position: relative;
+      border-radius: 30px;
+      box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: all 0.4s ease-out;
+      background: linear-gradient(145deg, var(--bg-primary), var(--bg-secondary));
+      
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 
+          0 20px 40px rgba(0, 0, 0, 0.12),
+          0 0 0 2px rgba(255, 203, 60, 0.1);
+      }
+    }
 
-    &:nth-child(even) {
-      animation-delay: 1.5s;
+    .product-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      border-radius: 30px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease-out;
+      }
+    }
+
+    .product-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      padding: 2rem 1.5rem;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+    }
+
+    .product-name {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transform: translateY(0);
+      transition: transform 0.4s ease;
+    }
+
+    .product-item:hover {
+      .product-image-wrapper img {
+        transform: scale(1.1);
+      }
+      
+      .product-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.5) 60%,
+          transparent 100%
+        );
+      }
+
+      .product-name {
+        transform: translateY(-5px);
+      }
     }
   }
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
-
-  .product-image-wrapper {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    transition: transform 0.3s ease;
-  }
-
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    background-color: $primary-color;
-  }
-
-  .product-item:hover .product-image-wrapper {
-    transform: scale(1.1);
-    z-index: 1;
-  }
-
-  .product-item:hover .product-image {
-    transform: scale(1.5);
-  }
-
-  .product-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    padding: 1rem;
-  }
-
-  .product-name {
-    color: #fff;
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 0.5rem;
+    }
   }
 }
 
@@ -410,4 +443,183 @@ $secondary-color: #000000;
   background-color: #fff;
   color: $primary-color;
   border: 1px solid $primary-color;
+}
+
+// Add these to your existing styles
+@media (max-width: 768px) {
+  [data-aos] {
+    // Reduce animation duration on mobile
+    &[data-aos][data-aos-duration="1000"] {
+      transition-duration: 800ms;
+    }
+    
+    // Reduce delays on mobile
+    &[data-aos][data-aos-delay] {
+      transition-delay: 0s !important;
+    }
+  }
+}
+
+// Optimize animations for reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    transition-duration: 0s !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    margin-top: 70px;
+    height: 60vh;
+
+    .slide-content {
+      .experience-counter .counter-number {
+        font-size: 2.8rem;
+      }
+
+      .slide-title {
+        .thin-text {
+          font-size: 2rem;
+        }
+        
+        .bold-text {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slider {
+    height: 50vh;
+    margin-top: 60px;
+
+    .slide-content {
+      .experience-counter .counter-number {
+        font-size: 2.5rem;
+      }
+
+      .slide-title {
+        .thin-text {
+          font-size: 1.8rem;
+        }
+        
+        .bold-text {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+}
+
+.slide-content {
+  .experience-counter {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease forwards;
+    animation-delay: 0.5s;
+
+    .counter-number {
+      display: inline-block;
+      animation: dropIn 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+  }
+
+  .slide-title {
+    .thin-text, .bold-text {
+      display: block;
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .thin-text:first-child {
+      animation: slideAndDrop 0.8s ease forwards;
+      animation-delay: 1.2s;
+    }
+
+    .bold-text {
+      animation: slideAndDrop 0.8s ease forwards;
+      animation-delay: 1.4s;
+    }
+
+    .thin-text:last-child {
+      animation: slideAndDrop 0.8s ease forwards;
+      animation-delay: 1.6s;
+    }
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideAndDrop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) translateY(-20px);
+  }
+  60% {
+    transform: translateX(0) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .hero-slider {
+    height: 70vh;
+    
+    .slide .slide-image {
+      height: 70vh;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    margin-top: 60px;
+    height: 60vh;
+    
+    .slide .slide-image {
+      height: 60vh;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slider {
+    height: 50vh;
+    margin-top: 50px;
+
+    .slide .slide-image {
+      height: 50vh;
+    }
+  }
 }

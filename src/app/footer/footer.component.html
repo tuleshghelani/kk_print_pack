@@ -1,35 +1,80 @@
-<div class="row mt-5 footer-section w-100">
-    <div class="col-6"><iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118134.90642795184!2d70.77560298379684!3d22.28875201113289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca03bcf33ad9%3A0x174adcb0a1b662!2sK.K.%20Art%20Printers!5e0!3m2!1sen!2sin!4v1706556544960!5m2!1sen!2sin"
-            width="950" height="650" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-    <div class="col-6 contact-area">
-        <div class="send-message-box">
-            <h4>SEND YOUR MESSAGE</h4>
-            <div class="d-flex mt-2">
-                <input class="form-control input-height w-50 my-3" type="text" placeholder="Name">
-                <input class="form-control input-height w-50 ms-2 my-3" type="email" placeholder="Email ID">
-            </div>
-            <input class="form-control input-height mb-3" type="text" name="contact-no" placeholder="contact-no">
-            <textarea class="form-control my-3" name="message" id="" cols="10" rows="5"
-                placeholder="Message"></textarea>
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="company-info">
+                        <img src="assets/logo/logo.png" alt="KK Print Pack Logo" class="footer-logo">
+                        <p class="mt-3">Leading provider of innovative printing and packaging solutions. We deliver quality, sustainability, and excellence in every project.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-                <button class="btn btn-secondary mx-auto send-btn">SEND</button>
-        </div>
-        <div class="contact-detials">
-            <div class="contact-line boredr-top">
-                <h5>PHONE</h5>
-                <p>+91 83477 56701</p>
-            </div>
-            <div class="contact-line">
-                <h5>EMAIL</h5>
-                <p>kkprintpack03@gmail.com</p>
-            </div>
-            <div class="contact-line">
-                <h5>KK PRINT PACK SOLUTION</h5>
-                <p>Shivam-7, Kevalam Road, Nr. Antriksh School,<br>
-                    Devda, Kalavad Road, Rajkot-360 021. (Gj. - Ind)</p>
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a routerLink="/about-us">About Us</a></li>
+                        <li><a routerLink="/products">Our Products</a></li>
+                        <li><a routerLink="/quality">Quality Standards</a></li>
+                        <li><a routerLink="/infrastructure">Infrastructure</a></li>
+                        <li><a routerLink="/career">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Flexible Packaging</a></li>
+                        <li><a href="#">Rotogravure Printing</a></li>
+                        <li><a href="#">Custom Packaging</a></li>
+                        <li><a href="#">Food Grade Packaging</a></li>
+                        <li><a href="#">Sustainable Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Shivam-7, Kevalam Road, Nr. Antriksh School, Devda, Kalavad Road, Rajkot-360 021. (Gj. - Ind)
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+918347756701">+91 83477 56701</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:kkprintpack03@gmail.com">kkprintpack03&#64;gmail.com</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; {{currentYear}} KK Print Pack Solutions. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="footer-bottom-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

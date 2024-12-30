@@ -1,0 +1,31 @@
+<section class="product-showcase">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-down">
+      Our Premium Products
+      <span class="highlight-bar"></span>
+    </h2>
+    
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products; let i = index"
+           data-aos="fade-up"
+           [attr.data-aos-delay]="i * 100">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="hover-overlay">
+            <div class="product-details">
+              <h3>{{ product.name }}</h3>
+              <p>{{ product.description }}</p>
+              <button class="btn-explore">Explore More</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>{{ product.name }}</h4>
+          <div class="tags">
+            <span *ngFor="let tag of product.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

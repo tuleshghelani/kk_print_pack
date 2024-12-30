@@ -1,0 +1,20 @@
+<section class="why-choose-us">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-down">Why Choose Us</h2>
+    <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+      Experience excellence in flexible packaging solutions
+    </p>
+    
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features; let i = index"
+           data-aos="fade-up"
+           [attr.data-aos-delay]="i * 200">
+        <div class="icon-wrapper">
+          <img [src]="feature.icon" [alt]="feature.title">
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section> 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,9 @@ import { FooterComponent } from './footer/footer.component';
 import { QualityComponent } from './quality/quality.component';
 import { CareerComponent } from './career/career.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CircularProductsComponent } from './components/circular-products/circular-products.component';
+import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.component';
+import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StrengthComponent,
     FooterComponent,
     QualityComponent,
-    CareerComponent
+    CareerComponent,
+    CircularProductsComponent,
+    WhyChooseUsComponent,
+    ProductShowcaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

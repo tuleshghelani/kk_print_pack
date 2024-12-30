@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { trigger, transition, style, animate, state } from '@angular/animations';
+import { trigger, transition, style, animate, state, keyframes } from '@angular/animations';
+import * as AOS from 'aos';
 
 interface Slide {
   image: string;
@@ -21,15 +22,23 @@ interface Slide {
     ]),
     trigger('slideAnimation', [
       state('inactive', style({
-        opacity: 0,
-        transform: 'translateX(-100%)'
+        opacity: 0
       })),
       state('active', style({
-        opacity: 1,
-        transform: 'translateX(0)'
+        opacity: 1
       })),
-      transition('inactive => active', animate('500ms ease-in')),
-      transition('active => inactive', animate('500ms ease-out'))
+      transition('inactive => active', [
+        animate('500ms ease-in', keyframes([
+          style({ opacity: 0, offset: 0 }),
+          style({ opacity: 1, offset: 1 })
+        ]))
+      ]),
+      transition('active => inactive', [
+        animate('500ms ease-out', keyframes([
+          style({ opacity: 1, offset: 0 }),
+          style({ opacity: 0, offset: 1 })
+        ]))
+      ])
     ]),
     // trigger('backgroundAnimation', [
     //   transition(':enter', [
@@ -60,19 +69,33 @@ export class HomeComponent implements OnInit {
   targetCounterValue = 27;
 
   products = [
-    { name: 'Flat Bottom', image: '../../assets/products/product-image.png' },
+    { name: 'Flat Bottom', image: 'assets/products/KADHAI_POST_6.png' },
     { name: 'Spout', image: '../../assets/products/product-image.png' },
-    { name: 'Zip-Lock', image: '../../assets/products/product-image.png' },
+    { name: 'Zip-Lock', image: 'assets/products/KADHAI_POST_6.png' },
     { name: 'Stand Up', image: '../../assets/products/product-image.png' },
   ];
 
   ngOnInit() {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      offset: 100
+    });
+
     this.startSlideshow();
     this.animateCounter();
     this.startProductAnimation();
     this.generateParticles();
   }
 
+  // Add this method to refresh AOS on dynamic content changes
+  ngAfterViewInit() {
+    setTimeout(() => {
+      AOS.refresh();
+    }, 500);
+  }
 
   generateParticles() {
     for (let i = 0; i < 50; i++) {

@@ -1,51 +1,60 @@
-<div class="header-section">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="row w-100">
-            <div class="col-lg-4 col-12 mobile-header">
-                <a routerLink="/" class="tm-header-logo">
-                    <h1>KK PRINT LOGO</h1>
-                    <!-- <img src="../../assets/logo.jpg" alt="surose"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon text-white"></span>
-                </button>
-            </div>
-            <div class="col-lg-8 col-12">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0 header-menus">
-                        <li class="nav-item mx-3 company-profile">
-                            <div class="d-block">
-                                <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active">HOME</a>
-                                <!-- <div class="profile-dropdown">
-                                    <ul>
-                                        <li routerLink="/about-us">About Us</li>
-                                        <li routerLink="/strength">Strength</li>
-                                        <li routerLink="/infrastructure">Infrastructure</li>
-                                    </ul>
-                                </div> -->
-                            </div>
-                        </li>
-                        <li class="nav-item mx-3 header-tab">
-                            <a class="nav-link" aria-current="page" routerLink="/about-us">ABOUT</a>
-                        </li>
-                        <li class="nav-item mx-3 header-tab">
-                            <a class="nav-link" aria-current="page" routerLink="/products">PRODUCTS</a>
-                        </li>
-                        <li class="nav-item mx-3 header-tab">
-                            <a class="nav-link" aria-current="page" routerLink="/quality">QUALITY</a>
-                        </li>
-                        <li class="nav-item mx-3 header-tab">
-                            <a class="nav-link" aria-current="page" routerLink="/career">CAREERS</a>
-                        </li>
-                        <li class="nav-item mx-3 header-tab">
-                            <a class="nav-link" aria-current="page" routerLink="/contact-us">CONTACT US</a>
-                        </li>
-                    </ul>
-                    <span class="contact-number cursor">+91 8347756701</span>
-                </div>
-            </div>
-        </div>
+<header class="main-header" [ngClass]="{'scrolled': isScrolled}">
+  <div class="header-container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <a routerLink="/">
+        <img src="assets/logo/logo.png" alt="KK Print Pack Solutions" class="company-logo">
+      </a>
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [ngClass]="{'active': isMobileMenuOpen}">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Navigation Section -->
+    <nav class="main-nav" [ngClass]="{'mobile-open': isMobileMenuOpen}">
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/" 
+             routerLinkActive="active" 
+             [routerLinkActiveOptions]="{exact: true}"
+             class="nav-link">HOME</a>
+        </li>
+        <li>
+          <a routerLink="/about-us" 
+             routerLinkActive="active" 
+             class="nav-link">ABOUT</a>
+        </li>
+        <li>
+          <a routerLink="/products" 
+             routerLinkActive="active" 
+             class="nav-link">PRODUCTS</a>
+        </li>
+        <li>
+          <a routerLink="/quality" 
+             routerLinkActive="active" 
+             class="nav-link">QUALITY</a>
+        </li>
+        <li>
+          <a routerLink="/career" 
+             routerLinkActive="active" 
+             class="nav-link">CAREERS</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" 
+             routerLinkActive="active" 
+             class="nav-link">CONTACT US</a>
+        </li>
+      </ul>
     </nav>
-</div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <a href="tel:+918347756701" class="contact-link">
+        <i class="fas fa-phone-alt"></i>
+        <span>+91 8347756701</span>
+      </a>
+    </div>
+  </div>
+</header>
