@@ -220,4 +220,16 @@ export class HomeComponent implements OnInit {
   isNumber(value: any): boolean {
     return typeof value === 'number';
   }
+
+  goToSlide(index: number) {
+    const prevIndex = this.currentSlide;
+    this.currentSlide = index;
+    
+    this.slides[prevIndex].state = 'inactive';
+    
+    setTimeout(() => {
+      this.slides[this.currentSlide].state = 
+        this.currentSlide === 0 ? 'first' : 'second';
+    }, 100);
+  }
 }

@@ -13,6 +13,7 @@
     <div class="slide" *ngFor="let slide of slides; let i = index"
          [@slideContent]="slide.state"
          [class.active]="i === currentSlide">
+      <div class="overlay-gradient"></div>
       <img [src]="slide.image" [alt]="'Slide ' + (i + 1)" 
            class="slide-image"
            [@imageReveal]>
@@ -24,7 +25,7 @@
               {{ isNumber(slide.content.counter.value) ? 
                   (slide.content.counter.value | number) : 
                   slide.content.counter.value 
-              }}<span>+</span>
+              }}<span class="plus-sign">+</span>
             </ng-container>
           </h1>
           <div class="counter-border"></div>
@@ -37,13 +38,27 @@
           <span class="thin-text animated-text">{{ slide.content.title[2] }}</span>
         </h1>
         
-        <button class="btn btn-primary animated-text">EXPLORE MORE</button>
+        <button class="btn btn-explore animated-text">
+          EXPLORE MORE
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
     </div>
     
     <div class="slider-controls">
-      <button class="prev-btn" (click)="prevSlide()">&#10094;</button>
-      <button class="next-btn" (click)="nextSlide()">&#10095;</button>
+      <button class="control-btn prev-btn" (click)="prevSlide()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="control-btn next-btn" (click)="nextSlide()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="slide-indicators">
+      <span *ngFor="let slide of slides; let i = index" 
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)">
+      </span>
     </div>
   </div>
   <!-- ABOUT SECTION -->
